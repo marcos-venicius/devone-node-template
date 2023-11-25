@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "target": "es2022",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": ["./"],
+  "files": ["./global.d.ts", "src/types/express/index.d.ts"],
+  "exclude": ["node_modules"]
+}
