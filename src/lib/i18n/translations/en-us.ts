@@ -8,7 +8,9 @@ const translation: typeof ptBr = {
       internal_server_error: 'Internal server error',
       unexpected_error: 'An unexpected error occurred',
       invalid_fields: 'Invalid fields',
-      not_found: '{0} not found'
+      not_found: '{0} not found',
+      unauthorized: 'Unauthorized',
+      invalid_auth_token: 'Invalid token'
     }
   }
 }

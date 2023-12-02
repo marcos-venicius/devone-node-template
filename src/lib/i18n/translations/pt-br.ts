@@ -7,6 +7,8 @@ export default {
       unexpected_error: 'Um erro inesperado aconteceu',
       invalid_fields: 'Campos inválidos',
       not_found: '{0} não encontrado',
+      unauthorized: 'Não autorizado',
+      invalid_auth_token: 'Token inválido'
     }
   }
 }
