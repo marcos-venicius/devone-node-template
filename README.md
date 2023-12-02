@@ -2,15 +2,12 @@
 
 This is a basic node api project template
 
-## Authenticated version
+## How to run
 
-If you want the authenticated project version you just need to do the following steps:
-
-1. checkout to the correct branch: `git checkout base-auth`
-2. install the missing dependencies `npm ci`
-3. generate the prisma models `npx prisma generate` and update the database `npx prisma db push`
-4. configure your environment variables `HASH_SECRET` | `MAIL_USER` | `MAIL_PASS` | `MAIL_FROM` | `MAIL_HOST` | `MAIL_PORT` | `JWT_SECRET`
-5. run the application `npm run dev`
+1. install the missing dependencies `npm ci`
+2. generate the prisma models `npx prisma generate` and update the database `npx prisma db push`
+3. configure your environment variables `HASH_SECRET` | `MAIL_USER` | `MAIL_PASS` | `MAIL_FROM` | `MAIL_HOST` | `MAIL_PORT` | `JWT_SECRET`
+4. run the application `npm run dev`
 
 The endpoints are:
 
