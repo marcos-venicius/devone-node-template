@@ -28,6 +28,8 @@ app.use(router(routes))
 app.use(errorHandler)
 
 app.listen(PORT, () => {
-  console.log('DevOne - software solutions [node base project]')
-  console.log(`Running at por ${PORT}`)
+  console.log()
+  console.log('\x1b[1;37mDevOne - software solutions [node base project]\x1b[0m')
+  console.log()
+  console.log(`\x1b[1;36m[*] \x1b[1;33mRunning at port \x1b[1;32m${PORT}\x1b[0m`)
 })
