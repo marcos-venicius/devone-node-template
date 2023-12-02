@@ -3,7 +3,6 @@ import { ZodError } from 'zod'
 import { ApplicationException } from '~/exceptions/ApplicationException'
 import { BadRequestException } from '~/exceptions/BadRequestException'
 import { NotFoundException } from '~/exceptions/NotFoundException'
-import { UnauthorizedException } from '~/exceptions/UnauthorizedException'
 import { t } from '~/lib/i18n/t'
 import { mapZodErrors } from '~/utils/map-zod-errors'
 
@@ -15,12 +14,6 @@ export function errorHandler(err: Error, _req: Request, res: Response, _next: Ne
 
     if (err instanceof BadRequestException) {
       return res.status(400).json({
-        message: err.message
-      })
-    }
-
-    if (err instanceof UnauthorizedException) {
-      return res.status(401).json({
         message: err.message
       })
     }

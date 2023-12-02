@@ -9,7 +9,6 @@ namespace AppRouter {
   type Route = {
     path: `/v${number}/${string}`
     method: Method
-    authenticated?: boolean
     handler: RequestHandler
   }
 

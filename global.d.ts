@@ -8,7 +8,6 @@ namespace NodeJS {
     MAIL_FROM: string
     MAIL_HOST: string
     MAIL_PORT: string
-    JWT_SECRET: string
   }
 }
 
