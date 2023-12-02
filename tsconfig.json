@@ -5,13 +5,15 @@
     "module": "commonjs",
     "outDir": "./dist",
     "baseUrl": ".",
+    "rootDir": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
     "paths": {
-      "~/*": ["./src/*"]
-    }
+      "~/*": ["src/*"]
+    },
+    "types": ["@types/jest"]
   },
   "include": ["./"],
   "files": ["./global.d.ts", "src/types/express/index.d.ts", "src/lib/router/types.d.ts"],

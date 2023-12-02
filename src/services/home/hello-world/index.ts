@@ -6,7 +6,9 @@ export class HomeHelloWorldService {
   }
 
   public execute() {
-    return `Hello ${this.payload.who || 'World'}`
+    if (this.payload.who) return `Hello, ${this.payload.who}!`
+
+    return 'Hello, World!'
   }
 }
 
