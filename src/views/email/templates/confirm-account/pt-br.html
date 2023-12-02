@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirme sua conta</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      h1 {
+        color: #404452;
+        font-size: 35px;
+      }
+
+      p {
+        font-size: 16px;
+        color: #1a1a1a;
+        margin-top: 30px;
+      }
+
+      #confirmation-code {
+        margin-top: 50px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #1a1a1a;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Olá, @name!</h1>
+    <p>
+      Você está muito perto de começar usar seu mais novo app de agendamentos. Agora, você só
+      precisa informar o código abaixo na tela de confirmação de conta para continuar.
+    </p>
+    <p id="confirmation-code">@confirmation-code</p>
+  </body>
+</html>

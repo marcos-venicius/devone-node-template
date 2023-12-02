@@ -9,3 +9,36 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id String @id @default(uuid())
+
+  name             String
+  email            String    @unique
+  password         String
+  emailConfirmedAt DateTime?
+
+  confirmationCodes UserConfirmationCode[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([email])
+}
+
+model UserConfirmationCode {
+  id     String @id @default(uuid())
+  userId String
+
+  code      String   @unique
+  expiresIn DateTime
+  outdated  Boolean  @default(false)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([code])
+}
