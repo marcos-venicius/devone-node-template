@@ -28,8 +28,3 @@ type DeepKeys<T> = T extends object
         : never
     }[keyof T]
   : ''
-
-type RequestHandler<T = any> = (
-  req: import('express').Request,
-  res: import('express').Response
-) => Promise<T>

@@ -1,7 +1,7 @@
 import { HomeHelloWorldService } from '~/services/home/hello-world'
 
 export class HomeController {
-  public static helloWorld: RequestHandler = async (req, res) => {
+  public static helloWorld: AppRouter.RequestHandler = async (req, res) => {
     const homeHelloWorldService = new HomeHelloWorldService(req.query)
 
     const message = homeHelloWorldService.execute()

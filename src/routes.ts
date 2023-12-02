@@ -1,7 +1,6 @@
 import { HomeController } from './controllers/home'
-import { Router } from './lib/router/types'
 
-export const routes: Router = [
+export const routes: AppRouter.Routes = [
   {
     handler: HomeController.helloWorld,
     path: '/v1/hello-world',

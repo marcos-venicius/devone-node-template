@@ -14,6 +14,6 @@
     }
   },
   "include": ["./"],
-  "files": ["./global.d.ts", "src/types/express/index.d.ts"],
+  "files": ["./global.d.ts", "src/types/express/index.d.ts", "src/lib/router/types.d.ts"],
   "exclude": ["node_modules"]
 }
