@@ -1,8 +1,8 @@
-import { db } from '~/lib/db'
-import { confirmUserAccountSchema } from './schemas'
-import { t } from '~/lib/i18n/t'
 import { BadRequestException } from '~/exceptions/BadRequestException'
 import { NotFoundException } from '~/exceptions/NotFoundException'
+import { db } from '~/lib/db'
+import { t } from '~/lib/i18n/t'
+import { confirmUserAccountSchema } from './schemas'
 
 export class ConfirmUserAccountService {
   constructor(private readonly payload: ConfirmUserAccountService.Payload) {
@@ -71,25 +71,16 @@ export class ConfirmUserAccountService {
   public async execute() {
     const user = await this.user()
 
-    if (!user) {
-      throw new NotFoundException(t('errors.generic.not_found', t('models.user.capitalized')))
-    }
-
-    if (!!user.emailConfirmedAt) {
-      throw new BadRequestException(t('messages.account_already_confirmed'))
-    }
+    if (!user) throw new NotFoundException(t('errors.generic.not_found', t('models.user.capitalized')))
+    if (!!user.emailConfirmedAt) throw new BadRequestException(t('messages.account_already_confirmed'))
 
     const confirmationCode = await this.confirmationCode(user.id)
 
     if (!confirmationCode) {
-      throw new NotFoundException(
-        t('errors.generic.not_found', t('models.confirmation_code.capitalized'))
-      )
+      throw new NotFoundException(t('errors.generic.not_found', t('models.confirmation_code.capitalized')))
     }
 
-    if (confirmationCode.outdated) {
-      throw new BadRequestException(t('errors.specifc.invalid_code'))
-    }
+    if (confirmationCode.outdated) throw new BadRequestException(t('errors.specifc.invalid_code'))
 
     if (confirmationCode.expiresIn < new Date()) {
       await this.markConfirmationCodeAsOutdated(confirmationCode.id)

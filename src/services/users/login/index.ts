@@ -1,10 +1,10 @@
-import { db } from '~/lib/db'
 import jwt from 'jsonwebtoken'
-import { userLoginSchema } from './schemas'
-import { t } from '~/lib/i18n/t'
 import { BadRequestException } from '~/exceptions/BadRequestException'
-import { hash } from '~/lib/hash'
 import { UnauthorizedException } from '~/exceptions/UnauthorizedException'
+import { db } from '~/lib/db'
+import { hash } from '~/lib/hash'
+import { t } from '~/lib/i18n/t'
+import { userLoginSchema } from './schemas'
 
 export class UserLoginService {
   constructor(private readonly body: UserLoginService.Body) {
@@ -30,9 +30,7 @@ export class UserLoginService {
 
     if (!user) throw new UnauthorizedException(t('errors.specifc.invalid_credentials'))
 
-    if (!user.emailConfirmedAt) {
-      throw new BadRequestException(t('errors.generic.confirm_your_account'))
-    }
+    if (!user.emailConfirmedAt) throw new BadRequestException(t('errors.generic.confirm_your_account'))
 
     const EIGHT_HOURS_IN_SECONDS = 8 * 60 * 60
 

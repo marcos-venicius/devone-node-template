@@ -6,8 +6,6 @@ export class HomeController {
 
     const message = homeHelloWorldService.execute()
 
-    return res.status(200).json({
-      message
-    })
+    return res.status(200).json({ message })
   }
 }

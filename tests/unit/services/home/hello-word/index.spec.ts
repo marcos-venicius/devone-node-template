@@ -10,9 +10,7 @@ describe('HelloWorldService', () => {
   })
 
   it('should return "Hello, Marcos!" when param "who" is specified as "Marcos"', () => {
-    const helloWorldService = new HomeHelloWorldService({
-      who: "Marcos"
-    })
+    const helloWorldService = new HomeHelloWorldService({ who: 'Marcos' })
 
     const result = helloWorldService.execute()
 

@@ -6,9 +6,7 @@ import { t } from '~/lib/i18n/t'
 export function authenticate(req: Request, _: Response, next: NextFunction) {
   const token = String(req.header('Authorization'))
 
-  if (!token || !token.startsWith('Bearer ')) {
-    throw new UnauthorizedException(t('errors.generic.unauthorized'))
-  }
+  if (!token || !token.startsWith('Bearer ')) throw new UnauthorizedException(t('errors.generic.unauthorized'))
 
   const jwtToken = token.replace('Bearer ', '').trim()
 

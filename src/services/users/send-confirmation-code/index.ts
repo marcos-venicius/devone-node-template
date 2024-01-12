@@ -57,20 +57,15 @@ export class SendUserConfirmationCodeService {
 
     if (!user) return
 
-    if (!!user.emailConfirmedAt) {
-      throw new BadRequestException(t('messages.account_already_confirmed'))
-    }
+    if (!!user.emailConfirmedAt) throw new BadRequestException(t('messages.account_already_confirmed'))
 
     await this.closeCurrentOpenConfirmationCodes(user.id)
     const confirmationCode = await this.createConfirmationCode(user.id)
 
-    const confirmAccountEmailTemplate = await Email.readTemplate(
-      t('mail.templates.confirm_account'),
-      {
-        '@name': user.name,
-        '@confirmation-code': confirmationCode
-      }
-    )
+    const confirmAccountEmailTemplate = await Email.readTemplate(t('mail.templates.confirm_account'), {
+      '@name': user.name,
+      '@confirmation-code': confirmationCode
+    })
 
     const email = new Email(this.payload.email, t('mail.subjects.confirm_account'))
 
