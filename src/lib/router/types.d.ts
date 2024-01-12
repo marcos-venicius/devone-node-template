@@ -1,6 +1,6 @@
 namespace AppRouter {
   type RequestHandler<T = any> = (
-    req: import('express').Request,
+    req: import('express').Request<any, any, any, any, any>,
     res: import('express').Response
   ) => Promise<T>
 
