@@ -1,12 +1,12 @@
+import cors from 'cors'
 import express from 'express'
 import helmet from 'helmet'
-import cors from 'cors'
 import morgan from 'morgan'
 
 import 'dotenv/config'
-import { i18n } from './middleware/i18n'
-import { errorHandler } from './middleware/error-handler'
 import router from './lib/router'
+import { errorHandler } from './middleware/error-handler'
+import { i18n } from './middleware/i18n'
 import { routes } from './routes'
 
 const PORT = process.env.PORT || 3333
